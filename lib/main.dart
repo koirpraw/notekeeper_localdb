@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:notes_localdb/todoui.dart';
+import 'package:notes_localdb/mynotes.dart';
+import 'package:notes_localdb/mynotes.dart';
 
 void main() => runApp(MyApp());
 
@@ -14,10 +15,10 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: "TODO",
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark().copyWith(
-        accentColor: Colors.purple,
+      theme: ThemeData.light().copyWith(
+        colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.deepOrange),
       ),
-      home: todoui(),
+      home: MyNotes(),
     );
   }
 }

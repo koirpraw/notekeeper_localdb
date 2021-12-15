@@ -1,30 +1,35 @@
 import 'package:flutter/material.dart';
-import 'package:notes_localdb/dbhelper.dart';
+import 'package:notes_localdb/utils/constant.dart';
+import 'package:notes_localdb/utils/dbhelper.dart';
 
-class todoui extends StatefulWidget {
-  const todoui({Key? key}) : super(key: key);
+class MyNotes extends StatefulWidget {
+  const MyNotes({Key? key}) : super(key: key);
 
   @override
-  _todouiState createState() => _todouiState();
+  _MyNotesState createState() => _MyNotesState();
 }
 
-class _todouiState extends State<todoui> {
+class _MyNotesState extends State<MyNotes> {
   void showDialogAlert() {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
         shape: RoundedRectangleBorder(
+
           borderRadius: BorderRadius.circular(12.0),
         ),
-        title: Text("Add Task"),
+        title: const Text("Add Task"),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            TextField(
+            const TextField(
               autofocus: true,
             ),
             Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-              ElevatedButton(onPressed: () {}, child: Text("Add")),
+              Padding(
+                padding: const EdgeInsets.only(top: 12.0),
+                child: ElevatedButton(onPressed: () {}, child: const Text("Add")),
+              ),
             ])
           ],
         ),
@@ -33,20 +38,27 @@ class _todouiState extends State<todoui> {
   }
 
   Widget mycard(String task) {
-    return Card(
-      elevation: 5,
-      margin: EdgeInsets.symmetric(
-        vertical: 5.0,
-        horizontal: 10.0,
-      ),
-      child: Container(
+    return Padding(
+      padding: const EdgeInsets.all(5.0),
+      child: Card(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)),
+        elevation: 12,
+        shadowColor: kTilesShadowColor,
+        margin: const EdgeInsets.symmetric(
+          vertical: 5.0,
+          horizontal: 10.0,
+        ),
         child: Padding(
           padding: const EdgeInsets.all(5.0),
-          child: ListTile(
-            title: Text("$task"),
-            onLongPress: () {
-              print("delete task selecetd");
-            },
+          child: Container(
+            decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(12.0))),
+
+            child: ListTile(
+              title: Text("$task", style: TextStyle(fontSize: 18),),
+              onLongPress: () {
+                print("delete task selecetd");
+              },
+            ),
           ),
         ),
       ),
@@ -63,16 +75,16 @@ class _todouiState extends State<todoui> {
         onPressed: () {
           showDialogAlert();
         },
-        child: Icon(
+        child: const Icon(
           Icons.add,
           color: Colors.white,
         ),
       ),
       appBar: AppBar(
-        backgroundColor: Colors.black,
-        title: Text(
-          "To Do",
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        backgroundColor: Colors.lightGreen,
+        title: const Text(
+          "My Notes",
+          style: TextStyle( fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
       ),
@@ -101,3 +113,6 @@ class _todouiState extends State<todoui> {
     );
   }
 }
+
+
+// 0xFFFF9000
