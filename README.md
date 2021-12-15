@@ -1,10 +1,16 @@
 # notes_localdb
 
-local daatabase app with CRUD operation to create notes.
+note taking app using local database for storage, allows CRUD operations.
+create new notes, delete or update the existing notes.
+Notes are arranged as a separate card in vertical arrangement. Each card will allow user to store as much or as long of a note as user wants.
 
-## Getting Started
+Packages/Plugins used:
+SQFlite:to carry SQLite function for local database and run the CRUD operation.
+link: https://pub.dev/packages/sqflite/install
+path_provider: to manage the the path of the application folder in the device's directory.
+link: https://pub.dev/packages/path_provider
 
-This project is a starting point for a Flutter application.
+## Getting Started with Flutter
 
 A few resources to get you started if this is your first Flutter project:
 
